@@ -60,4 +60,34 @@ WHERE "id" = $4;`;
     });
 });
 
+// post/add genre
+router.post("/genre", (req, res) => {
+  const queryText = `INSERT INTO "movie_genre" ("movie_id", "genre_id")
+    VALUES ($1, $2);`;
+  const movieGenreData = req.body;
+  pool
+    .query(queryText, [movieGenreData.movie_id, movieGenreData.genre_id])
+    .then((responseFromDb) => {
+      res.sendStatus(201);
+    })
+    .catch((error) => {
+      console.log("ADD GENRE ERROR: ", error);
+      res.sendStatus(500);
+    });
+});
+
+// delete genre
+router.delete("/genre/:id", (req, res) => {
+  const queryText = `DELETE FROM "movie_genre" WHERE "id" = $1;`;
+  pool
+    .query(queryText, [req.params.id])
+    .then((responseFromDb) => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log("DELETE GENRE ERROR: ", error);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;
