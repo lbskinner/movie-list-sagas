@@ -3,6 +3,9 @@ export const movies = (state = [], action) => {
   switch (action.type) {
     case "SET_MOVIES":
       return action.payload;
+    // used to store individual movie details from the server
+    case "SET_DETAILS":
+      return action.payload;
     default:
       return state;
   }
