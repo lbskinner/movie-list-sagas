@@ -1,24 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import MovieListItem from "../MovieListItem/MovieListItem";
 
 class MovieList extends React.Component {
-  seeDetails = (id) => (event) => {
-    this.props.dispatch({ type: "GET_DETAILS", payload: id });
-    this.props.history.push("/details");
-  };
+  componentDidMount() {
+    this.props.dispatch({ type: "GET_MOVIES" });
+  }
   render() {
-    const movieId = this.props.movie.id;
-    return (
-      <div onClick={this.seeDetails(movieId)}>
-        <img src={this.props.movie.poster} alt={this.props.movie.title} />
-        <div>
-          <h2>{this.props.movie.title}</h2>
-          <p>{this.props.movie.description}</p>
-        </div>
-      </div>
-    );
+    const moviesArray = this.props.store.movies.map((movie, index) => {
+      return <MovieListItem movie={movie} key={index} />;
+    });
+    return <div>{moviesArray}</div>;
   }
 }
 
-export default withRouter(connect()(MovieList));
+const mapStoreToProps = (store) => ({ store });
+
+export default connect(mapStoreToProps)(MovieList);
