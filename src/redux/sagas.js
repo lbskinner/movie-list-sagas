@@ -19,10 +19,20 @@ function* getMovieDetails(action) {
   }
 }
 
+function* deleteGenre(action) {
+  try {
+    yield axios.delete(`/movies/genre/${action.payload}`);
+    yield put({ type: "GET_DETAILS" });
+  } catch (error) {
+    console.log("DELETE GENRE ERROR: ", error);
+  }
+}
+
 // Create the rootSaga generator function
 function* rootSaga() {
   yield takeEvery("GET_MOVIES", getMovies);
   yield takeEvery("GET_DETAILS", getMovieDetails);
+  yield takeEvery("DELETE_GENRE", deleteGenre);
 }
 
 export default rootSaga;
