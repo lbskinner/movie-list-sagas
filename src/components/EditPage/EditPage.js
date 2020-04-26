@@ -6,29 +6,35 @@ import "./EditPage.css";
 class EditPage extends React.Component {
   state = {
     // set the id to the id from the params
+    // movieDetails: [...this.props.store.movieDetails],
     id: this.props.match.params.id,
-    title: "",
-    description: "",
+    title: this.props.store.movieDetails[0].title,
+    description: this.props.store.movieDetails[0].description,
   };
+
   componentDidMount() {
     this.props.dispatch({ type: "GET_DETAILS", payload: this.state.id });
+    // if (this.props.store.movieDetails.length > 0) {
+    //   this.setStateToReducer();
+    // }
   }
 
+  //   setStateToReducer() {
+  //     this.setState({
+  //       ...this.state,
+  //       movieDetails: [...this.props.store.movieDetails],
+  //     });
+  //   }
   handleCancel = (event) => {
     // could use push, but used goBack() to see how it works
     this.props.history.goBack();
   };
 
   handleInputChange = (event, propertyKey) => {
-    this.setState(
-      {
-        ...this.state,
-        [propertyKey]: event.target.value,
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
+    this.setState({
+      ...this.state,
+      [propertyKey]: event.target.value,
+    });
   };
 
   handleSave = (event) => {
@@ -44,7 +50,7 @@ class EditPage extends React.Component {
             <br />
             <input
               type="text"
-              defaultValue={this.props.store.movieDetails[0].title}
+              defaultValue={this.state.title}
               onChange={(event) => this.handleInputChange(event, "title")}
             />{" "}
             <br />
@@ -55,7 +61,7 @@ class EditPage extends React.Component {
               type="text"
               rows="15"
               cols="75"
-              defaultValue={this.props.store.movieDetails[0].description}
+              defaultValue={this.state.description}
               onChange={(event) => this.handleInputChange(event, "description")}
             ></textarea>
             <div>

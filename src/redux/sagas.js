@@ -40,6 +40,7 @@ function* addGenre(action) {
 function* updateMovieDetails(action) {
   try {
     yield axios.put("/movies/edit", action.payload);
+    yield window.location.reload(true);
   } catch (error) {
     console.log("PUT DETAILS ERROR: ", error);
   }
