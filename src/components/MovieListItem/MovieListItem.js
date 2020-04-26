@@ -17,6 +17,7 @@ class MovieListItem extends React.Component {
         <div>
           <h2>{this.props.movie.title}</h2>
           <p>{this.props.movie.description}</p>
+          <p>Genres: {this.props.movie.genres.join(", ")}</p>
         </div>
       </div>
     );

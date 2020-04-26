@@ -12,12 +12,12 @@ class EditPage extends React.Component {
     description: this.props.store.movieDetails[0].description,
   };
 
-  componentDidMount() {
-    this.props.dispatch({ type: "GET_DETAILS", payload: this.state.id });
-    // if (this.props.store.movieDetails.length > 0) {
-    //   this.setStateToReducer();
-    // }
-  }
+  //   componentDidMount() {
+  //     this.props.dispatch({ type: "GET_DETAILS", payload: this.state.id });
+  //     // if (this.props.store.movieDetails.length > 0) {
+  //     //   this.setStateToReducer();
+  //     // }
+  //   }
 
   //   setStateToReducer() {
   //     this.setState({
