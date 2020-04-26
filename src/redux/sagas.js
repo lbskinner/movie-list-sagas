@@ -22,7 +22,7 @@ function* getMovieDetails(action) {
 function* deleteGenre(action) {
   try {
     yield axios.delete(`/movies/genre/${action.payload}`);
-    yield put({ type: "GET_DETAILS" });
+    yield window.location.reload(true);
   } catch (error) {
     console.log("DELETE GENRE ERROR: ", error);
   }
