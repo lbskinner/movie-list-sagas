@@ -9,10 +9,14 @@ class EditPageGenreListItem extends React.Component {
   render() {
     const genreId = this.props.genre.movie_genre_id;
     return (
-      <li>
-        {this.props.genre.genre_name}{" "}
-        <button onClick={this.handleDelete(genreId)}>Delete</button>
-      </li>
+      <div>
+        {this.props.genre.genre_name !== "N/A" && (
+          <li>
+            {this.props.genre.genre_name}
+            <button onClick={this.handleDelete(genreId)}>Delete</button>
+          </li>
+        )}
+      </div>
     );
   }
 }
