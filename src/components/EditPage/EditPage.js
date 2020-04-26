@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./EditPage.css";
-import EditPageGenre from "../EditPageGenre/EditPageGenre";
 
 // trying to use class component to get the id this time
 class EditPage extends React.Component {
@@ -43,7 +42,6 @@ class EditPage extends React.Component {
               <button onClick={this.handleCancel}>Cancel Changes</button>
               <button>Save Changes</button>
             </div>
-            <EditPageGenre />
           </div>
         )}
       </div>

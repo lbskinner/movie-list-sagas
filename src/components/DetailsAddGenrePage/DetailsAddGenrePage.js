@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-class EditPageGenreAdd extends React.Component {
+class DetailsAddGenrePage extends React.Component {
   state = {
     genre_id: 0,
     movie_id: this.props.store.movieDetails[0].id,
@@ -52,4 +52,4 @@ class EditPageGenreAdd extends React.Component {
 
 const mapStoreToProps = (store) => ({ store });
 
-export default connect(mapStoreToProps)(EditPageGenreAdd);
+export default connect(mapStoreToProps)(DetailsAddGenrePage);

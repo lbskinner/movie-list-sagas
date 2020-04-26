@@ -25,7 +25,7 @@ function DetailsPage({ dispatch, history, store }) {
         <div>
           <div>
             <button onClick={backButtonClicked}>Back to List</button>
-            <button onClick={editButtonClicked}>Edit</button>
+            <button onClick={editButtonClicked}>Edit Movie Details</button>
           </div>
           <br />
           <img

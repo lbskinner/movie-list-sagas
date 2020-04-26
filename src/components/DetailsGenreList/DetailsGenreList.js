@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import DetailsGenreListItem from "../DetailsGenreListItem/DetailsGenreListItem";
+import DetailsAddGenrePage from "../DetailsAddGenrePage/DetailsAddGenrePage";
 
 class DetailsGenreList extends React.Component {
   render() {
@@ -9,7 +10,13 @@ class DetailsGenreList extends React.Component {
         return <DetailsGenreListItem key={index} genre={genre} />;
       }
     );
-    return <ul>{genresArray}</ul>;
+    return (
+      <div>
+        <p>Current Genre: </p>
+        <ul>{genresArray}</ul>
+        <DetailsAddGenrePage />
+      </div>
+    );
   }
 }
 

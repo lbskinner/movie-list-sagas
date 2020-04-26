@@ -1,10 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
 
-class DetailsGenreListItem extends React.Component {
+class EditPageGenreListItem extends React.Component {
+  handleDelete = (id) => (event) => {
+    console.log("Genre_ID: ", id);
+    this.props.dispatch({ type: "DELETE_GENRE", payload: id });
+  };
   render() {
-    return <li>{this.props.genre.genre_name}</li>;
+    const genreId = this.props.genre.movie_genre_id;
+    return (
+      <li>
+        {this.props.genre.genre_name}{" "}
+        <button onClick={this.handleDelete(genreId)}>Delete</button>
+      </li>
+    );
   }
 }
 
-export default connect()(DetailsGenreListItem);
+export default connect()(EditPageGenreListItem);
