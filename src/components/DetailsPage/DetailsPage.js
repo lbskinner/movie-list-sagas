@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import DetailsGenreList from "../DetailsGenreList/DetailsGenreList";
 
+// need to use functional component with useParams()
 function DetailsPage({ dispatch, history, store }) {
   let { id } = useParams();
   console.log("paramsID: ", id);
@@ -16,7 +17,7 @@ function DetailsPage({ dispatch, history, store }) {
   };
 
   const editButtonClicked = (event) => {
-    history.push("/edit");
+    history.push(`/edit/${id}`);
   };
   return (
     <div>
