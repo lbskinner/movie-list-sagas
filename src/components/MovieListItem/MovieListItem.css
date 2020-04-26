@@ -1,0 +1,14 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 40px;
+  align-items: center;
+  margin: 40px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.box {
+  width: fit-content;
+  text-align: justify;
+}

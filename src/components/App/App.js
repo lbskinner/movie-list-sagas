@@ -11,11 +11,11 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <ul>
+          {/* <ul>
             <li>
               <Link to="/admin">Admin</Link>
             </li>
-          </ul>
+          </ul> */}
           <Route exact path="/" component={MovieList} />
           <Route path="/details/:id" component={DetailsPage} />
           <Route path="/edit/:id" component={EditPage} />

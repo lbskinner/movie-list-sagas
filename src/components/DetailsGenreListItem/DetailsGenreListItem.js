@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Button from "@material-ui/core/Button";
 
 class EditPageGenreListItem extends React.Component {
   handleDelete = (id) => (event) => {
@@ -13,7 +14,14 @@ class EditPageGenreListItem extends React.Component {
         {this.props.genre.genre_name !== "N/A" && (
           <li>
             {this.props.genre.genre_name}
-            <button onClick={this.handleDelete(genreId)}>Delete</button>
+            <Button
+              className="button-space"
+              variant="contained"
+              size="small"
+              onClick={this.handleDelete(genreId)}
+            >
+              Delete
+            </Button>
           </li>
         )}
       </div>

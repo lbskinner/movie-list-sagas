@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import DetailsGenreList from "../DetailsGenreList/DetailsGenreList";
+import Button from "@material-ui/core/Button";
+import "./DetailsPage.css";
 
 // need to use functional component with useParams()
 function DetailsPage({ dispatch, history, store }) {
@@ -20,12 +22,26 @@ function DetailsPage({ dispatch, history, store }) {
     history.push(`/edit/${id}`);
   };
   return (
-    <div>
+    <div className="DetailsPage">
       {store.movieDetails.length > 0 && (
         <div>
           <div>
-            <button onClick={backButtonClicked}>Back to List</button>
-            <button onClick={editButtonClicked}>Edit Movie Details</button>
+            <Button
+              className="button-space"
+              variant="contained"
+              size="small"
+              onClick={backButtonClicked}
+            >
+              Back to List
+            </Button>
+            <Button
+              className="button-space"
+              variant="contained"
+              size="small"
+              onClick={editButtonClicked}
+            >
+              Edit Movie Details
+            </Button>
           </div>
           <br />
           <img

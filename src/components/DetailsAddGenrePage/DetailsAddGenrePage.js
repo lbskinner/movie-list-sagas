@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Button from "@material-ui/core/Button";
 
 class DetailsAddGenrePage extends React.Component {
   state = {
@@ -44,7 +45,14 @@ class DetailsAddGenrePage extends React.Component {
           <option value="13">Superhero</option>
         </select>{" "}
         <br />
-        <button onClick={this.addGenreToMovie}>Add Genre</button>
+        <Button
+          className="button-space"
+          variant="contained"
+          size="small"
+          onClick={this.addGenreToMovie}
+        >
+          Add Genre
+        </Button>
       </div>
     );
   }

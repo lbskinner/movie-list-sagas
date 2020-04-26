@@ -4,20 +4,24 @@ import "./EditPage.css";
 
 // trying to use class component to get the id this time
 class EditPage extends React.Component {
-  state = {
-    // set the id to the id from the params
-    // movieDetails: [...this.props.store.movieDetails],
-    id: this.props.match.params.id,
-    title: this.props.store.movieDetails[0].title,
-    description: this.props.store.movieDetails[0].description,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      // set the id to the id from the params
+      // movieDetails: [...this.props.store.movieDetails],
+      id: this.props.match.params.id,
+      title: this.props.store.movieDetails[0].title,
+      description: this.props.store.movieDetails[0].description,
+    };
+  }
 
-  //   componentDidMount() {
-  //     this.props.dispatch({ type: "GET_DETAILS", payload: this.state.id });
-  //     // if (this.props.store.movieDetails.length > 0) {
-  //     //   this.setStateToReducer();
-  //     // }
-  //   }
+  componentDidMount() {
+    this.props.dispatch({ type: "GET_DETAILS", payload: this.state.id });
+
+    // if (this.props.store.movieDetails.length > 0) {
+    //   this.setStateToReducer();
+    // }
+  }
 
   //   setStateToReducer() {
   //     this.setState({
