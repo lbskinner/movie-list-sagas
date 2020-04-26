@@ -6,9 +6,7 @@ class DetailsGenreList extends React.Component {
   render() {
     const genresArray = this.props.store.movieDetails[0].genres.map(
       (genre, index) => {
-        return (
-          <DetailsGenreListItem key={index} genre={genre} genreId={genre.id} />
-        );
+        return <DetailsGenreListItem key={index} genre={genre} />;
       }
     );
     return <ul>{genresArray}</ul>;

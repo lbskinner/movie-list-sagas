@@ -22,8 +22,8 @@ router.get("/", (req, res) => {
 
 // get movie details
 router.get("/details/:id", (req, res) => {
-  const queryText = `SELECT "movies".id, "movies".title, "movies".poster, 
-  "movies".description, array_agg(COALESCE("genres".name, 'N/A')) as "genres" 
+  const queryText = `SELECT "movies".id, "movies".title, "movies".poster, "movies".description, 
+  json_agg(json_build_object('genre_name', COALESCE("genres".name, 'N/A'), 'movie_genre_id', "movie_genre".id)) as "genres"
   FROM "genres" JOIN "movie_genre" ON "movie_genre".genre_id = "genres".id
   RIGHT JOIN "movies" ON "movies".id = "movie_genre".movie_id 
   WHERE "movies".id = $1 GROUP BY "movies".id;`;
@@ -78,9 +78,10 @@ router.post("/genre", (req, res) => {
 
 // delete genre
 router.delete("/genre/:id", (req, res) => {
+  const movieGenreId = req.params.id;
   const queryText = `DELETE FROM "movie_genre" WHERE "id" = $1;`;
   pool
-    .query(queryText, [req.params.id])
+    .query(queryText, [movieGenreId])
     .then((responseFromDb) => {
       res.sendStatus(200);
     })
