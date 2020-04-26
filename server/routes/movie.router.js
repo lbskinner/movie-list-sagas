@@ -42,15 +42,10 @@ router.get("/details/:id", (req, res) => {
 router.put("/edit", (req, res) => {
   const movieData = req.body;
   const queryText = `UPDATE "movies" 
-SET "title" = $1, "poster" = $2, "description" = $3
-WHERE "id" = $4;`;
+SET "title" = $1, "description" = $2
+WHERE "id" = $3;`;
   pool
-    .query(queryText, [
-      movieData.title,
-      movieData.poster,
-      movieData.description,
-      movieData.id,
-    ])
+    .query(queryText, [movieData.title, movieData.description, movieData.id])
     .then((responseFromDb) => {
       res.sendStatus(200);
     })

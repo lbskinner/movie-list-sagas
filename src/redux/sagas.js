@@ -37,12 +37,21 @@ function* addGenre(action) {
   }
 }
 
+function* updateMovieDetails(action) {
+  try {
+    yield axios.put("/movies/edit", action.payload);
+  } catch (error) {
+    console.log("PUT DETAILS ERROR: ", error);
+  }
+}
+
 // Create the rootSaga generator function
 function* rootSaga() {
   yield takeEvery("GET_MOVIES", getMovies);
   yield takeEvery("GET_DETAILS", getMovieDetails);
   yield takeEvery("DELETE_GENRE", deleteGenre);
   yield takeEvery("ADD_GENRE", addGenre);
+  yield takeEvery("SAVE_DETAILS", updateMovieDetails);
 }
 
 export default rootSaga;
