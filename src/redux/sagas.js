@@ -28,11 +28,21 @@ function* deleteGenre(action) {
   }
 }
 
+function* addGenre(action) {
+  try {
+    yield axios.post("/movies/genre", action.payload);
+    yield window.location.reload(true);
+  } catch (error) {
+    console.log("ADD GENRE ERROR: ", error);
+  }
+}
+
 // Create the rootSaga generator function
 function* rootSaga() {
   yield takeEvery("GET_MOVIES", getMovies);
   yield takeEvery("GET_DETAILS", getMovieDetails);
   yield takeEvery("DELETE_GENRE", deleteGenre);
+  yield takeEvery("ADD_GENRE", addGenre);
 }
 
 export default rootSaga;

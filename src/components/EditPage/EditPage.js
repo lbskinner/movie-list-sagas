@@ -8,7 +8,6 @@ class EditPage extends React.Component {
   state = {
     title: "",
     description: "",
-    genres: "",
   };
   componentDidMount() {
     const id = this.props.match.params.id;
@@ -18,7 +17,6 @@ class EditPage extends React.Component {
 
   handleCancel = (event) => {
     this.props.history.goBack();
-    console.log(this.props.history);
   };
   render() {
     return (
