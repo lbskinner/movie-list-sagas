@@ -23,38 +23,38 @@ function DetailsPage({ dispatch, history, store }) {
   };
   return (
     <div className="DetailsPage">
-      {store.movieDetails.length > 0 && (
+      {/* {store.movieDetails.length > 0 && ( */}
+      <div>
         <div>
-          <div>
-            <Button
-              className="button-space"
-              variant="contained"
-              size="small"
-              onClick={backButtonClicked}
-            >
-              Back to List
-            </Button>
-            <Button
-              className="button-space"
-              variant="contained"
-              size="small"
-              onClick={editButtonClicked}
-            >
-              Edit Movie Details
-            </Button>
-          </div>
-          <br />
-          <img
-            src={store.movieDetails[0].poster}
-            alt={store.movieDetails[0].title}
-          />
-          <div>
-            <h2>{store.movieDetails[0].title}</h2>
-            <p>{store.movieDetails[0].description}</p>
-            <DetailsGenreList />
-          </div>
+          <Button
+            className="button-space"
+            variant="contained"
+            size="small"
+            onClick={backButtonClicked}
+          >
+            Back to List
+          </Button>
+          <Button
+            className="button-space"
+            variant="contained"
+            size="small"
+            onClick={editButtonClicked}
+          >
+            Edit Movie Details
+          </Button>
         </div>
-      )}
+        <br />
+        <img
+          src={store.movieDetails[0].poster}
+          alt={store.movieDetails[0].title}
+        />
+        <div>
+          <h2>{store.movieDetails[0].title}</h2>
+          <p>{store.movieDetails[0].description}</p>
+          <DetailsGenreList />
+        </div>
+      </div>
+      {/* )} */}
     </div>
   );
 }

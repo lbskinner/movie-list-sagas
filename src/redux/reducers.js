@@ -18,13 +18,22 @@ export const genres = (state = [], action) => {
   }
 };
 
+const initialMovieDetailsState = [
+  {
+    id: "",
+    title: "",
+    poster: "",
+    description: "",
+    genres: [],
+  },
+];
 // used to store individual movie details from the server
-export const movieDetails = (state = [], action) => {
+export const movieDetails = (state = initialMovieDetailsState, action) => {
   switch (action.type) {
     case "SET_DETAILS":
       return action.payload;
     case "CLEAR_DETAILS":
-      return [];
+      return initialMovieDetailsState;
     default:
       return state;
   }
