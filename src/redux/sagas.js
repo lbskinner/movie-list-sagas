@@ -31,8 +31,9 @@ function* deleteGenre(action) {
 
 function* addGenre(action) {
   try {
+    const movieId = action.payload.movie_id;
     yield axios.post("/movies/genre", action.payload);
-    yield window.location.reload(true);
+    yield put({ type: "GET_DETAILS", payload: movieId });
   } catch (error) {
     console.log("ADD GENRE ERROR: ", error);
   }
