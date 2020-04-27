@@ -21,8 +21,9 @@ function* getMovieDetails(action) {
 
 function* deleteGenre(action) {
   try {
-    yield axios.delete(`/movies/genre/${action.payload}`);
-    yield window.location.reload(true);
+    const movieId = action.payload.movieId;
+    yield axios.delete(`/movies/genre/${action.payload.movieGenreId}`);
+    yield put({ type: "GET_DETAILS", payload: movieId });
   } catch (error) {
     console.log("DELETE GENRE ERROR: ", error);
   }
