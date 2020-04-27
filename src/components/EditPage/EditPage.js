@@ -28,7 +28,19 @@ class EditPage extends React.Component {
   };
 
   handleSave = (event) => {
-    this.props.dispatch({ type: "SAVE_DETAILS", payload: this.state });
+    // when defaultValue is set to values in reducers, it's for display only
+    // if no changes are made, then there is no value being captured by state
+    // do a check to see if state has value, if it doesn't, set it to the values in reducers to capture the no change of state
+    let saveObject = {
+      ...this.state,
+    };
+    if (this.state.title == null || this.state.title == "") {
+      saveObject.title = this.props.store.movieDetails[0].title;
+    }
+    if (this.state.description == null || this.state.description == "") {
+      saveObject.description = this.props.store.movieDetails[0].description;
+    }
+    this.props.dispatch({ type: "SAVE_DETAILS", payload: saveObject });
     this.props.history.push(`/details/${this.state.id}`);
   };
   render() {
@@ -41,7 +53,8 @@ class EditPage extends React.Component {
           <input
             type="text"
             style={{ fontSize: "1rem" }}
-            defaultValue={this.state.title}
+            // cannot use value because it wont let you edit input, set defaultValues in reducers so the information displays on reload
+            defaultValue={this.props.store.movieDetails[0].title}
             onChange={(event) => this.handleInputChange(event, "title")}
           />{" "}
           <br />
@@ -52,7 +65,8 @@ class EditPage extends React.Component {
             rows="15"
             cols="75"
             style={{ fontSize: "1rem" }}
-            defaultValue={this.state.description}
+            // cannot use value because it wont let you edit input, set defaultValues in reducers so the information displays on reload
+            defaultValue={this.props.store.movieDetails[0].description}
             onChange={(event) => this.handleInputChange(event, "description")}
           ></textarea>
           <div>
