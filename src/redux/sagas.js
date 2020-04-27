@@ -41,8 +41,9 @@ function* addGenre(action) {
 
 function* updateMovieDetails(action) {
   try {
+    const movieId = action.payload.id;
     yield axios.put("/movies/edit", action.payload);
-    yield window.location.reload(true);
+    yield put({ type: "GET_DETAILS", payload: movieId });
   } catch (error) {
     console.log("PUT DETAILS ERROR: ", error);
   }
