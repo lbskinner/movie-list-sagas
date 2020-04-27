@@ -4,9 +4,7 @@
 
 ## Description
 
-Directly above this is how long it took you to develop the project. Your project description goes here. What problem did you solve? How did you solve it?
-
-For this challenge, I created a web page that displays a list of movies, including a poster of the movie, the movie title, a description of the movie and the movie genres.
+For this weekend challenge, I created a web application that displays a list of movies, including a poster of the movie, the movie title, a description of the movie and the movie genres.
 
 A user could click on a movie, to see details of the movie. On the top part details page of the movie, there are two buttons, "Back to List" and "Edit Movie Details". The "Back to List" button takes the user back to the movie list page. The "Edit Movie Details" button takes the user to an edit page. There are two input fields which allows the user to edit the movie title and movie description on the edit page. Under the input fields, there are two buttons, "Cancel Changes" and "Save Changes". The "Cancel Changes" takes the user back to the details page. The "Save Changes" will save the edits and also takes the user to the details page where the user can see that the content reflect the changes made.
 
