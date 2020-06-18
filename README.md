@@ -12,14 +12,17 @@ The details page also displays the movie poster, the movie title, the movie desc
 
 ## Screen Shot
 
-Home Page / Movie List Page
+### ### Home Page / Movie List Page
+
 ![movieList](screenshots/MovieListPage.png)
 Details Page
 ![detailsPage](screenshots/DetailsPage.png)
-Edit Page
+
+### Edit Page
+
 ![Edit](screenshots/EditPage.png)
 
-### Prerequisites
+## Prerequisites
 
 - [Node.js](https://nodejs.org/en/)
 - [Postgresql](https://www.postgresql.org/download/)

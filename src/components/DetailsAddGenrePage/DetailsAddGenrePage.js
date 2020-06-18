@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 class DetailsAddGenrePage extends React.Component {
   state = {
     genre_id: 0,
-    movie_id: this.props.store.movieDetails[0].id,
+    // movie_id: this.props.store.movieDetails[0].id,
   };
 
   handleSelect = (event) => {
@@ -21,7 +21,13 @@ class DetailsAddGenrePage extends React.Component {
   };
 
   addGenreToMovie = (event) => {
-    this.props.dispatch({ type: "ADD_GENRE", payload: this.state });
+    this.props.dispatch({
+      type: "ADD_GENRE",
+      payload: {
+        ...this.state,
+        movie_id: this.props.store.movieDetails[0].id,
+      },
+    });
   };
   render() {
     return (
